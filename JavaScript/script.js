@@ -49,19 +49,24 @@ ScrollReveal().reveal('.history, .contact-form', {origin: 'right'});
 
 // email linking
 
+let contactName = document.getElementById("name");
+let email = document.getElementById("email");
+let subject = document.getElementById("subject");
+let messageBody = document.getElementById("messageBody");
+
 function sendEmail() {
     Email.send({
-        Host: "smtp.gmail.com",
-        Username: "legendtech966@gmail.com",
-        Password: "hhhhh"
-        To: 'legendtech966@gmail.com',
-        From: document.getElementById("email").value,
-        Subject: "this subject",
-        Body: "Name: " + document.getElementById("name").value
-            + "<br> Email: " + document.getElementById("email").value
-            + "<br> subject: " + document.getElementById("subject").value
-            + "<br> message: " + document.getElementById("messageBody").value
+        Host : "smtp.elasticemail.com",
+        Username : "username",
+        Password : "password",
+        To : 'legendtech966@gmail.com',
+        From : email.value,
+        Subject : subject.value,
+        Body : "Name: " + contactName.value
+            +  "<br> Email: " + email.value
+            +  "<br> Subject: " + subject.value
+            +  "<br> Message: " + messageBody.value
     }).then(
-        message => alert("message sent")
+      message => alert("Message sent")
     );
 }
